@@ -501,6 +501,7 @@ Singleton {
             }
 
             property JsonObject sidebar: JsonObject {
+                property bool notesEnabled: false
                 property bool keepRightSidebarLoaded: true
                 property JsonObject translator: JsonObject {
                     property bool enable: false

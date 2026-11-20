@@ -79,8 +79,8 @@
             "widgetsFactor": 1.2,
             "workspaceZoom": 1.07
         },
-        "thumbnailPath": "",
-        "wallpaperPath": "/home/rin/Imágenes/Wallpapers/wallhaven-vpmmk5_3840x2160.png",
+        "thumbnailPath": "/home/rin/.config/hypr/custom/scripts/mpvpaper_thumbnails/picnic_wallpaper.mp4.jpg",
+        "wallpaperPath": "/home/rin/Imágenes/Wallpapers/picnic_wallpaper.mp4",
         "widgets": {
             "audioVisualizer": {
                 "enable": true,
@@ -119,20 +119,20 @@
                 "enable": true,
                 "placementStrategy": "leastBusy",
                 "quote": {
-                    "enable": false,
-                    "text": ""
+                    "enable": true,
+                    "text": "Abandonad toda esperanza"
                 },
                 "showOnlyWhenLocked": false,
                 "style": "cookie",
                 "styleLocked": "cookie",
-                "x": 765,
-                "y": 245
+                "x": 735,
+                "y": 225
             },
             "weather": {
                 "enable": false,
                 "placementStrategy": "free",
-                "x": 209.1953125,
-                "y": 431.03125
+                "x": 1126.4453125,
+                "y": 543.84765625
             }
         }
     },
@@ -148,7 +148,7 @@
         },
         "borderless": false,
         "bottom": false,
-        "cornerStyle": 1,
+        "cornerStyle": 0,
         "floatStyleShadow": true,
         "indicators": {
             "notifications": {
@@ -276,8 +276,8 @@
     "language": {
         "translator": {
             "engine": "auto",
-            "sourceLanguage": "auto",
-            "targetLanguage": "auto"
+            "sourceLanguage": "Español",
+            "targetLanguage": "English"
         },
         "ui": "es_MX"
     },
@@ -293,7 +293,7 @@
             "enable": false
         },
         "night": {
-            "automatic": true,
+            "automatic": false,
             "colorTemperature": 5000,
             "from": "19:00",
             "to": "06:30"
@@ -359,8 +359,8 @@
     },
     "panelFamily": "ii",
     "policies": {
-        "ai": 1,
-        "weeb": 1
+        "ai": 2,
+        "weeb": 0
     },
     "regionSelector": {
         "annotation": {
@@ -431,24 +431,25 @@
         "cornerOpen": {
             "bottom": false,
             "clickless": false,
-            "clicklessCornerEnd": true,
+            "clicklessCornerEnd": false,
             "clicklessCornerVerticalOffset": 1,
             "cornerRegionHeight": 5,
             "cornerRegionWidth": 250,
             "enable": true,
-            "valueScroll": true,
+            "valueScroll": false,
             "visualize": false
         },
         "keepRightSidebarLoaded": true,
+        "notesEnabled": true,
         "quickSliders": {
             "enable": false,
             "showBrightness": true,
             "showMic": false,
-            "showVolume": true
+            "showVolume": false
         },
         "quickToggles": {
             "android": {
-                "columns": 5,
+                "columns": 6,
                 "toggles": [
                     {
                         "size": 2,
@@ -481,6 +482,10 @@
                     {
                         "size": 1,
                         "type": "audio"
+                    },
+                    {
+                        "size": 1,
+                        "type": "darkMode"
                     }
                 ]
             },
@@ -488,12 +493,12 @@
         },
         "translator": {
             "delay": 300,
-            "enable": false
+            "enable": true
         }
     },
     "sounds": {
         "battery": false,
-        "pomodoro": false,
+        "pomodoro": true,
         "theme": "freedesktop"
     },
     "time": {
@@ -559,7 +564,7 @@
         }
     },
     "wallpaperSelector": {
-        "useSystemFileDialog": false
+        "useSystemFileDialog": true
     },
     "windows": {
         "centerTitle": true,

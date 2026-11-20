@@ -19,7 +19,7 @@ Item { // Player instance
     property string artDownloadLocation: Directories.coverArt
     property string artFileName: Qt.md5(artUrl)
     property string artFilePath: `${artDownloadLocation}/${artFileName}`
-    property color artDominantColor: ColorUtils.mix((colorQuantizer?.colors[0] ?? Appearance.colors.colPrimary), Appearance.colors.colPrimaryContainer, 0.8) || Appearance.m3colors.m3secondaryContainer
+    property color artDominantColor: Appearance.m3colors.m3secondaryContainer
     property bool downloaded: false
     property list<real> visualizerPoints: []
     property real maxVisualizerValue: 1000 // Max value in the data points
@@ -113,26 +113,6 @@ Item { // Player instance
             }
         }
 
-        StyledImage {
-            id: blurredArt
-            anchors.fill: parent
-            source: root.displayedArtFilePath
-            fillMode: Image.PreserveAspectCrop
-            cache: false
-            antialiasing: true
-            asynchronous: true
-
-            layer.enabled: true
-            layer.effect: StyledBlurEffect {
-                source: blurredArt
-            }
-
-            Rectangle {
-                anchors.fill: parent
-                color: ColorUtils.transparentize(blendedColors.colLayer0, 0.3)
-                radius: root.radius
-            }
-        }
 
         WaveVisualizer {
             id: visualizerCanvas
@@ -221,19 +201,6 @@ Item { // Player instance
                         elide: Text.ElideRight
                         text: `${StringUtils.friendlyTimeForSeconds(root.player?.position)} / ${StringUtils.friendlyTimeForSeconds(root.player?.length)}`
                     }
-                    AnimatedImage { // GIF junto al tiempo
-                        id: timeGif
-                        anchors.bottom: trackTime.bottom
-                        anchors.left: trackTime.right
-                        anchors.leftMargin: 6
-                        width: 24
-                        height: 24
-                        source: Qt.resolvedUrl("../../../assets/apollyon.gif")
-                        visible: root.player?.isPlaying ?? false
-                        playing: visible
-                        smooth: false
-                        fillMode: Image.PreserveAspectFit
-                    }
                     RowLayout {
                         id: sliderRow
                         anchors {
@@ -316,6 +283,18 @@ Item { // Player instance
                                 animation: Appearance.animation.elementMoveFast.colorAnimation.createObject(this)
                             }
                         }
+                    }
+                    AnimatedImage { // GIF junto al botón de pausa
+                        anchors.right: playPauseButton.left
+                        anchors.rightMargin: 6
+                        anchors.verticalCenter: playPauseButton.verticalCenter
+                        width: playPauseButton.size
+                        height: playPauseButton.size
+                        source: Qt.resolvedUrl("../../../assets/apollyon.gif")
+                        visible: root.player?.isPlaying ?? false
+                        playing: visible
+                        smooth: false
+                        fillMode: Image.PreserveAspectFit
                     }
                 }
             }
